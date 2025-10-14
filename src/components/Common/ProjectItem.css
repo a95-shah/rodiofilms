@@ -1,0 +1,228 @@
+.item {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--color-white);
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+
+.item::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-white);
+  opacity: 0.5;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--transition-slow);
+}
+
+.item.visible::before {
+  transform: scaleX(1);
+}
+
+.item-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  padding: 1.9rem 0 1.5rem;
+  transform: translateY(100%);
+  transition: transform 1s cubic-bezier(0.59, 0, 0.32, 0.99);
+}
+
+.item.visible .item-content {
+  transform: translateY(0);
+}
+
+.item-left {
+  text-align: left;
+  flex: 1;
+  margin-right: 3rem;
+}
+
+.item-title {
+  display: block;
+  font-size: var(--font-size-body);
+  text-transform: uppercase;
+  transition: color var(--transition-fast);
+  font-weight: 500;
+}
+
+.item-category {
+  display: block;
+  color: var(--color-gray);
+  font-size: var(--font-size-body);
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+}
+
+.item-right {
+  flex-shrink: 0;
+  text-align: right;
+  font-size: var(--font-size-body);
+  text-transform: uppercase;
+}
+
+.item:hover .item-title {
+  color: var(--color-primary);
+}
+
+.item:hover .item-category {
+  color: var(--color-gray);
+}
+/*  */
+
+.item-video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.background-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+  transform: scale(1.1);
+  transition: transform 10s ease;
+}
+.fullscreen-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw; /* maintain 16:9 aspect ratio */
+  min-height: 100vh;
+  min-width: 177.78vh;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+}
+
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.item {
+  position: relative;
+  z-index: 2; /* Above the video background */
+}
+
+
+/*  */
+.item-thumbnail {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.item-thumbnail img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover; /* keeps good aspect ratio */
+  border-radius: 4px; /* optional */
+}
+.item-thumbnail img:hover {
+  transform: scale(1.05);
+  transition: transform 0.5s ease;
+}
+
+/* ============================= */
+/* FULLSCREEN VIDEO OVERLAY */
+/* ============================= */
+
+.video-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  animation: fadeInOverlay 0.5s ease forwards;
+  pointer-events: none; /* ensures clicks go to buttons underneath */
+}
+
+.video-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw; /* maintains 16:9 ratio */
+  min-height: 100vh;
+  min-width: 177.78vh; /* ensures full width coverage */
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  border: none;
+  animation: zoomIn 8s ease forwards;
+}
+
+.overlay-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+/* Vimeo Hover Player Container */
+.vimeo-hover-player {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw; /* 16:9 aspect */
+  min-height: 100vh;
+  min-width: 177.78vh;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 1;
+  border: none;
+  pointer-events: none;
+}
+
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes zoomIn {
+  from {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+
+

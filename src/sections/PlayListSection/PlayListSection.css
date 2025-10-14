@@ -1,0 +1,15 @@
+.section.playlist-section {
+  background-color: var(--color-background);
+}
+
+.playlist-section .item {
+  transition-delay: 0.1s;
+}
+
+.playlist-section .item:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.playlist-section .item:nth-child(3) {
+  transition-delay: 0.3s;
+}

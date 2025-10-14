@@ -1,0 +1,225 @@
+/* .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-index-menu);
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background-color: rgba(1, 1, 1, 0.95);
+  color: var(--color-white);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-fast), visibility var(--transition-fast);
+}
+
+.menu.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-nav {
+  position: relative;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: var(--spacing-md);
+}
+
+.menu-button {
+  overflow: hidden;
+  background: none;
+  border: none;
+  color: var(--color-white);
+  cursor: pointer;
+  font-size: var(--font-size-h1);
+  text-transform: uppercase;
+  padding: 0;
+  position: relative;
+}
+
+.menu-button::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-background);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast);
+}
+
+.menu-button:hover::before {
+  opacity: 0.8;
+}
+
+.menu-button span {
+  display: inline-block;
+  transform: translateY(100%);
+  transition: transform var(--transition-slow), color var(--transition-fast);
+}
+
+.menu.active .menu-button span {
+  transform: translateY(0);
+}
+
+.menu-button:hover span {
+  color: var(--color-primary);
+}
+
+.menu-socials {
+  position: absolute;
+  bottom: 3rem;
+  left: 3rem;
+  z-index: 6;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.menu-socials a {
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: var(--font-size-body);
+  text-transform: uppercase;
+  transition: color var(--transition-fast);
+}
+
+.menu-socials a:hover {
+  color: var(--color-primary);
+}
+.social-icon {
+  color: #fff;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .menu-socials {
+    bottom: 6rem;
+    left: 6rem;
+  }
+} */
+
+/* MENU FIX */
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-index-menu);
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  background-color: rgba(1, 1, 1, 0.95);
+  color: var(--color-white);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-fast), visibility var(--transition-fast);
+  overflow: hidden;
+}
+
+/* Support for modern browsers */
+@supports (height: 100dvh) {
+  .menu {
+    height: 100dvh;
+    min-height: 100dvh;
+  }
+}
+
+.menu.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-nav {
+  position: relative;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: var(--spacing-md);
+}
+
+.menu-button {
+  overflow: hidden;
+  background: none;
+  border: none;
+  color: var(--color-white);
+  cursor: pointer;
+  font-size: var(--font-size-h1);
+  text-transform: uppercase;
+  padding: 0;
+  position: relative;
+}
+
+.menu-button::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-background);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast);
+}
+
+.menu-button:hover::before {
+  opacity: 0.8;
+}
+
+.menu-button span {
+  display: inline-block;
+  transform: translateY(100%);
+  transition: transform var(--transition-slow), color var(--transition-fast);
+}
+
+.menu.active .menu-button span {
+  transform: translateY(0);
+}
+
+.menu-button:hover span {
+  color: var(--color-primary);
+}
+
+.menu-socials {
+  position: absolute;
+  bottom: 3rem;
+  left: 3rem;
+  z-index: 6;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.menu-socials a {
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: var(--font-size-body);
+  text-transform: uppercase;
+  transition: color var(--transition-fast);
+}
+
+.menu-socials a:hover {
+  color: var(--color-primary);
+}
+
+.social-icon {
+  color: #fff;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .menu-socials {
+    bottom: 6rem;
+    left: 6rem;
+  }
+}

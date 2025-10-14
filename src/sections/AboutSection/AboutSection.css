@@ -1,0 +1,25 @@
+.about-text {
+  line-height: 1.6;
+  font-size: var(--font-size-large);
+  margin-bottom: 3rem;
+  opacity: 0;
+  transition: opacity var(--transition-slow);
+  text-align: center;
+  color: var(--color-white);
+}
+
+.about-text.visible {
+  opacity: 1;
+}
+
+.section.about-section .section-content {
+  max-width: 60rem;
+}
+
+.section.about-section .item-content {
+  justify-content: center;
+}
+
+.section.about-section .item::before {
+  display: none;
+}
