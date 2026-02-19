@@ -1,5 +1,30 @@
 @import "tailwindcss";
 
+@import "./styles/variables.css";
+@import "./styles/animations.css";
+@import "./styles/globals.css";
+
+/* 🎨 Optional custom variables */
+:root {
+  --color-primary: #ff2203;
+  --color-gray: #a1a1a1;
+  --color-white: #ffffff;
+}
+
+/* 💫 Optional background noise overlay */
+.grain-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('/grain-texture.png'); /* optional texture */
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  opacity: 0.1;
+}
+
+
+
+/* @import "tailwindcss"; */
+
 
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;

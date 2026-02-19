@@ -4,7 +4,10 @@
   bottom: 3.1rem;
   z-index: var(--z-index-footer);
   display: flex;
-  gap: var(--spacing-md);
+  flex-direction: column;   
+  align-items: flex-start;
+  gap: 0;                   
+  line-height: 1;           
   color: var(--color-white);
   text-transform: uppercase;
   font-size: var(--font-size-small);
@@ -22,7 +25,8 @@
 
 .footer-links {
   display: flex;
-  gap: 0.5rem;
+  flex-wrap: wrap;
+   
 }
 
 .footer a {
@@ -47,58 +51,3 @@
     display: block;
   }
 } */
-
-
-.footer {
-  position: fixed;
-  right: 3rem;
-  bottom: 3.1rem;
-  z-index: var(--z-index-footer);
-  display: flex;
-  flex-direction: column;   /* stack vertically */
-  align-items: flex-start;
-  gap: 0;                   /* ✅ remove gap completely */
-  line-height: 1;           /* ✅ tighter vertical spacing */
-  color: var(--color-white);
-  text-transform: uppercase;
-  font-size: var(--font-size-small);
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-
-.footer.visible {
-  opacity: 1;
-}
-
-.footer-copy {
-  display: none;
-}
-
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-   /* small spacing between "Legals" and "Website by TROA" only */
-}
-
-.footer a {
-  color: var(--color-white);
-  text-decoration: none;
-  transition: color var(--transition-fast);
-}
-
-.footer a:hover {
-  color: var(--color-primary);
-}
-
-@media (min-width: 768px) {
-  .footer {
-    right: 8rem;
-    bottom: 6rem;
-    transform: rotate(-90deg) translate(100%);
-    transform-origin: bottom right;
-  }
-
-  .footer-copy {
-    display: block;
-  }
-}

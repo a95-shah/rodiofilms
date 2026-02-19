@@ -1,4 +1,4 @@
-.section {
+/* .section {
   position: fixed;
   top: 0;
   left: 0;
@@ -68,39 +68,7 @@
     transform: translateY(-50%);
   }
 }
-
-
-/*  */
-
-/* .video-background-layer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-} */
-
-/* .video-background-layer img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  animation: thumbnailFadeIn 0.8s ease forwards;
-} */
-
-/* @keyframes thumbnailFadeIn {
-  from {
-    opacity: 0;
-    transform: scale(1.1);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-} */
-
 .section-content {
   position: relative;
   z-index: 2;
-}
+} */
