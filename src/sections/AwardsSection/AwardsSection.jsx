@@ -90,36 +90,29 @@ const AwardsSection = ({ isActive }) => {
 
   return (
     <div
-      className={`w-full h-full flex flex-col items-center justify-center bg-[var(--color-background)] transition-opacity duration-700 ease-out ${
-        isActive ? "opacity-100 visible" : "opacity-0 invisible"
-      }`}
+      className={`
+        fixed inset-0 z-[var(--z-index-section)] w-full h-full
+        bg-black overflow-y-auto
+        transition-opacity duration-500 ease-out
+        ${isActive ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none"}
+      `}
     >
-      {/* Section Scroll Wrapper */}
-      <div className="overflow-y-auto w-full flex justify-center">
-        {/* Section Content */}
-        <div className="w-full max-w-[75rem] flex flex-col items-center gap-10 px-4 md:px-8 py-12">
+      {/* Vertically centered wrapper */}
+      <div className="flex justify-center items-center min-h-screen pt-32 pb-24 px-12 md:px-24">
+        {/* Content column */}
+        <div className="w-full max-w-[700px] mx-auto">
           {awards.map((award, index) => (
             <ProjectItem
               key={award.id}
               title={award.title}
               category={award.project}
               year={award.year}
-              previewUrl={award.previewUrl}
+              thumbnailUrl={award.thumbnailUrl}
               index={index}
             />
           ))}
         </div>
       </div>
-
-      {/* Optional: background looping award video (like .item-video) */}
-      <video
-        className="fixed top-0 left-0 w-full h-full opacity-40 pointer-events-none z-[-1] object-cover"
-        autoPlay
-        loop
-        muted
-        playsInline
-        src="https://rodeo.film/media/site/3ed14dabac-1717424859/wheels.mp4"
-      />
     </div>
   );
 };

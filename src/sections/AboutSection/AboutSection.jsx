@@ -54,15 +54,18 @@ const AboutSection = ({ isActive }) => {
 
   return (
     <div
-      className={`w-full h-full flex flex-col items-center justify-center transition-opacity duration-700 ease-out ${
-        isActive ? "opacity-100 visible" : "opacity-0 invisible"
-      }`}
+      className={`
+        fixed inset-0 z-[var(--z-index-section)] w-full h-full
+        bg-black overflow-y-auto
+        transition-opacity duration-500 ease-out
+        ${isActive ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none"}
+      `}
     >
-      <div className="overflow-y-auto w-full flex justify-center px-6">
+      <div className="flex justify-center items-center min-h-screen px-6">
         <div className="max-w-[60rem] text-center flex flex-col items-center">
           {/* About Text */}
           <p
-            className={`leading-relaxed text-[var(--font-size-large)] text-[var(--color-white)] mb-12 transition-opacity duration-[1.2s] ease-in-out ${
+            className={`leading-relaxed text-[16px] text-white mb-12 transition-opacity duration-[1.2s] ease-in-out ${
               isVisible ? "opacity-100" : "opacity-0"
             }`}
           >
@@ -76,13 +79,11 @@ const AboutSection = ({ isActive }) => {
           {/* Contact Link */}
           <a
             href="mailto:hugo@rodeo.film"
-            className={`inline-flex items-center justify-center text-[var(--color-white)] uppercase tracking-wider text-lg transition-opacity duration-[1.2s] ease-in-out ${
+            className={`inline-flex items-center justify-center text-white uppercase tracking-widest text-[13px] font-bold transition-opacity duration-[1.2s] ease-in-out hover:text-[var(--color-primary)] ${
               isVisible ? "opacity-100" : "opacity-0"
             }`}
           >
-            <div className="flex items-center justify-center px-6 py-3 bg-transparent hover:text-[var(--color-primary)] transition-colors duration-300">
-              <p className="font-medium">Contact Us</p>
-            </div>
+            Contact Us
           </a>
         </div>
       </div>

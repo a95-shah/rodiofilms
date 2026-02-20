@@ -94,7 +94,7 @@ const Menu = ({ isOpen, onSectionSelect }) => {
                 onClick={() => onSectionSelect(item.id)}
                 style={{ transitionDelay: `${index * 0.1}s` }}
                 className="
-                  relative overflow-hidden
+                  relative
                   bg-transparent border-none cursor-pointer
                   text-[var(--font-size-h1)] uppercase
                   text-[var(--color-white)]
@@ -104,9 +104,8 @@ const Menu = ({ isOpen, onSectionSelect }) => {
               >
                 <span
                   className={`
-                    inline-block translate-y-full
+                    inline-block
                     transition-transform duration-[var(--transition-slow)]
-                    ${isOpen ? 'translate-y-0' : ''}
                   `}
                 >
                   {item.label}

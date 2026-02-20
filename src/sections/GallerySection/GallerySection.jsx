@@ -128,12 +128,15 @@ const GallerySection = ({ isActive }) => {
   return (
     <div
       ref={sectionRef}
-      className={`relative overflow-hidden w-full h-screen bg-[var(--color-background)] transition-opacity duration-700 ease-out ${
-        isActive ? "opacity-100 visible" : "opacity-0 invisible"
-      }`}
+      className={`
+        fixed inset-0 z-[var(--z-index-section)] w-full h-full
+        bg-black overflow-hidden
+        transition-opacity duration-500 ease-out
+        ${isActive ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none"}
+      `}
     >
       {/* Instruction text */}
-      <p className="absolute top-8 left-1/2 -translate-x-1/2 text-[var(--color-white)] text-sm md:text-base tracking-widest uppercase">
+      <p className="absolute top-8 left-1/2 -translate-x-1/2 text-[var(--color-white)] text-sm md:text-base tracking-widest uppercase z-10">
         TOUCH AND MOVE
       </p>
 

@@ -62,52 +62,52 @@ const PlaylistSection = ({ isActive }) => {
 
   return (
     <div
-      className={`relative w-full h-full bg-[var(--color-background)] transition-opacity duration-700 ease-out ${
-        isActive ? "opacity-100 visible" : "opacity-0 invisible"
-      }`}
+      className={`
+        fixed inset-0 z-[var(--z-index-section)] w-full h-full
+        bg-black overflow-y-auto
+        transition-opacity duration-500 ease-out
+        ${isActive ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none"}
+      `}
     >
       {/* Scroll wrapper */}
-      <div className="overflow-y-auto h-full">
-        <div className="flex flex-col items-center justify-center py-20 space-y-8">
+      <div className="flex justify-center items-center min-h-screen pt-32 pb-24 px-12 md:px-24">
+        <div className="w-full max-w-[700px] mx-auto">
           {playlists.map((playlist, index) => (
             <a
               key={playlist.id}
               href={playlist.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full max-w-3xl block group opacity-0 animate-fadeIn"
               style={{ animationDelay: `${index * 0.1}s`, animationFillMode: "forwards" }}
+              className="w-full block group opacity-0 animate-fadeIn"
             >
-              <div className="flex items-center justify-between border-b border-[var(--color-white)]/20 py-6 transition-all duration-300 group-hover:opacity-80">
-                <div className="flex flex-col space-y-1">
-                  <strong className="text-[var(--color-white)] text-lg font-semibold tracking-wide">
+              <div className="flex items-center justify-between py-8 transition-all duration-300 group-hover:opacity-80">
+                <div className="flex flex-col space-y-2">
+                  <strong className="text-white text-[13px] font-bold tracking-widest uppercase">
                     {playlist.name}
                   </strong>
-                  <span className="text-[var(--color-white)]/70 text-sm tracking-wide">
+                  <span className="text-gray-400 text-[11px] tracking-widest uppercase">
                     {playlist.tracks}
                   </span>
                 </div>
-                <p className="text-[var(--color-white)] text-sm tracking-[0.2em] uppercase">
+                <p className="text-white text-[13px] tracking-widest uppercase font-bold">
                   LISTEN
                 </p>
               </div>
+              <hr className="w-full border-0 border-t border-white/25 m-0" />
             </a>
           ))}
+          {/* Top border above first item */}
+          <style>{`
+            .w-full.block.group:first-child { border-top: 1px solid rgba(255,255,255,0.25); }
+            @keyframes fadeIn {
+              0% { opacity: 0; transform: translateY(20px); }
+              100% { opacity: 1; transform: translateY(0); }
+            }
+            .animate-fadeIn { animation: fadeIn 0.8s ease forwards; }
+          `}</style>
         </div>
       </div>
-
-      {/* Keyframe animation for staggered fade-in */}
-      <style>
-        {`
-          @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-          }
-          .animate-fadeIn {
-            animation: fadeIn 0.8s ease forwards;
-          }
-        `}
-      </style>
     </div>
   );
 };

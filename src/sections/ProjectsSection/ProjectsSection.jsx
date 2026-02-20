@@ -1,49 +1,3 @@
-// import React, { useState } from 'react';
-// import ProjectItem from '../../components/Common/ProjectItem';
-// import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
-// import { projects } from '../../data/Projects';
-// import './ProjectsSection.css';
-
-// const ProjectsSection = ({ isActive }) => {
-//   const [selectedVideo, setSelectedVideo] = useState(null);
-
-//   return (  
-//     <>
-//       <div className={`section projects-section ${isActive ? 'active' : ''}`}>
-       
-//         <div className="section-scroll">
-//           <div className="section-content">
-//             {projects.map((project, index) => (
-//               <ProjectItem
-//                 key={project.id}
-//                 title={project.title}
-//                 category={project.category}
-//                 year={project.year}
-//                 thumbnailUrl={project.thumbnailUrl}
-//                 vimeoId={project.vimeoId}
-//                 index={index}
-//                 onClick={() => setSelectedVideo(project.vimeoId)}
-//               />
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-
-     
-//       {selectedVideo && (
-//         <VideoPlayer
-//           vimeoId={selectedVideo}
-//           isOpen={true}
-//           onClose={() => setSelectedVideo(null)}
-//         />
-//       )}
-//     </>
-//   );
-// };
-
-// export default ProjectsSection;
-
-
 import React, { useState } from "react";
 import ProjectItem from "../../components/Common/ProjectItem";
 import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
@@ -54,28 +8,19 @@ const ProjectsSection = ({ isActive }) => {
 
   return (
     <>
-      {/* Main Section */}
+      {/* Main Section — full screen, black background, scrollable */}
       <div
-        className={`fixed inset-0 z-[var(--z-index-section)] w-full h-full overflow-y-auto transition-all duration-500 ease-out
+        className={`
+          fixed inset-0 z-[var(--z-index-section)] w-full h-full
+          bg-black overflow-y-auto
+          transition-opacity duration-500 ease-out
           ${isActive ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none"}
         `}
       >
-        {/* Optional title — hidden in your current version */}
-        {/* 
-        <p className="fixed top-[11rem] left-[3rem] z-30 overflow-hidden text-[var(--color-white)] text-[var(--font-size-h1)] uppercase">
-          <span
-            className={`inline-block transform transition-transform duration-[600ms] [transition-timing-function:cubic-bezier(0.59,0,0.32,0.99)]
-              ${isActive ? "translate-y-0 delay-300" : "translate-y-full"}
-            `}
-          >
-            Projects
-          </span>
-        </p> 
-        */}
-
-        {/* Scroll Wrapper */}
-        <div className="w-full min-h-screen py-[12rem] pb-[6rem]">
-          <div className="w-[calc(100%-6rem)] max-w-[42rem] mx-auto relative z-20 md:w-[calc(100%-12rem)]">
+        {/* Vertically centered wrapper with top/bottom padding for header */}
+        <div className="flex justify-center items-center min-h-screen pt-32 pb-24 px-12 md:px-24">
+          {/* Content column — right-biased like the screenshot */}
+          <div className="w-full max-w-[700px] mx-auto">
             {projects.map((project, index) => (
               <ProjectItem
                 key={project.id}
@@ -105,4 +50,3 @@ const ProjectsSection = ({ isActive }) => {
 };
 
 export default ProjectsSection;
-
